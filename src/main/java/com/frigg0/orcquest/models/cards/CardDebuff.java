@@ -9,16 +9,30 @@ public class CardDebuff {
     private boolean affectEveryone;
 
     // Constructors
-    public CardDebuff(int healthLoss, int cardLoss, int goldLoss, boolean looseAllGold, boolean affectEveryone) {
+    public CardDebuff(boolean affectEveryone, int goldLoss, int healthLoss){
+        this.affectEveryone = affectEveryone;
+        this.goldLoss = goldLoss;
+        this.healthLoss = healthLoss;
+    }
+
+    public CardDebuff(int healthLoss, int goldLoss) {
+        this.healthLoss = healthLoss;
+        this.goldLoss = goldLoss;
+    }
+
+    public CardDebuff(int healthLoss, int cardLoss, boolean affectEveryone) {
         this.healthLoss = healthLoss;
         this.cardLoss = cardLoss;
-        this.goldLoss = goldLoss;
-        this.looseAllGold = looseAllGold;
         this.affectEveryone = affectEveryone;
     }
 
-    public CardDebuff() {
-        // empty constructor on purpose
+    public CardDebuff(boolean looseAllGold, int healthLoss) {
+        this.looseAllGold = looseAllGold;
+        this.healthLoss = healthLoss;
+    }
+
+    public CardDebuff(int healthLoss) {
+        this.healthLoss = healthLoss;
     }
 
     // toString

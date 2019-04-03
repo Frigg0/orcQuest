@@ -2,10 +2,10 @@ package com.frigg0.orcquest.models.dice;
 
 public class DiceEffect {
     // Variables declarations
-    private Enum<Face> diceEffect;
+    private Enum<FaceEnum> diceEffect;
 
     // Constructors
-    public DiceEffect(Enum<Face> diceEffect) {
+    public DiceEffect(Enum<FaceEnum> diceEffect) {
         this.diceEffect = diceEffect;
     }
 
@@ -33,11 +33,11 @@ public class DiceEffect {
     }
 
     // Getters and setters
-    public Enum<Face> getDiceEffect() {
+    public Enum<FaceEnum> getDiceEffect() {
         return diceEffect;
     }
 
-    public void setDiceEffect(Enum<Face> diceEffect) {
+    public void setDiceEffect(Enum<FaceEnum> diceEffect) {
         this.diceEffect = diceEffect;
     }
 }

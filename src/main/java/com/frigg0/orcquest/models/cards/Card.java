@@ -1,32 +1,34 @@
 package com.frigg0.orcquest.models.cards;
 
+import com.frigg0.orcquest.models.dice.DiceThrow;
+
 public class Card {
     // Variables declarations
     private int id;
     private String name;
     private Enum<CardType> cardType;
     private int successRequired;
-    private int numberOfTryingDice;
     private boolean onlyPlayableLastTurn;
     private int goldReward;
     private int healthReward;
     private CardDebuff cardDebuff;
     private boolean playableOncePerTurn;
     private String cardEffect;
+    private DiceThrow diceThrow;
 
     // Constructors
     public Card(int id, String name, Enum<CardType> cardType, int successRequired,
-                int numberOfTryingDice, boolean onlyPlayableLastTurn, int goldReward,
-                CardDebuff cardDebuff, boolean playableOncePerTurn) {
+                boolean onlyPlayableLastTurn, int goldReward, CardDebuff cardDebuff,
+                boolean playableOncePerTurn, DiceThrow diceThrow) {
         this.id = id;
         this.name = name;
         this.cardType = cardType;
         this.successRequired = successRequired;
-        this.numberOfTryingDice = numberOfTryingDice;
         this.onlyPlayableLastTurn = onlyPlayableLastTurn;
         this.goldReward = goldReward;
         this.cardDebuff = cardDebuff;
         this.playableOncePerTurn = playableOncePerTurn;
+        this.diceThrow = diceThrow;
     }
 
     public Card(int id, String name, Enum<CardType> cardType, boolean onlyPlayableLastTurn,
@@ -50,20 +52,29 @@ public class Card {
     }
 
     public Card(int id, String name, Enum<CardType> cardType, int successRequired,
-                int numberOfTryingDice, boolean onlyPlayableLastTurn, int healthReward, boolean playableOncePerTurn) {
+                boolean onlyPlayableLastTurn, int healthReward,
+                boolean playableOncePerTurn, DiceThrow diceThrow) {
         this.id = id;
         this.name = name;
         this.cardType = cardType;
         this.successRequired = successRequired;
-        this.numberOfTryingDice = numberOfTryingDice;
+        this.diceThrow = diceThrow;
         this.onlyPlayableLastTurn = onlyPlayableLastTurn;
         this.healthReward = healthReward;
         this.playableOncePerTurn = playableOncePerTurn;
     }
 
-    public Card() {
-        // empty constructor on purpose.
+    public Card(int id, String name, Enum<CardType> cardType, boolean playableOncePerTurn, String cardEffect) {
+        this.id = id;
+        this.name = name;
+        this.cardType = cardType;
+        this.playableOncePerTurn = playableOncePerTurn;
+        this.cardEffect = cardEffect;
     }
+
+    // public Card() {
+        // empty constructor on purpose.
+    //}
 
     // toString
     @Override
@@ -73,7 +84,7 @@ public class Card {
                 ", name='" + name + '\'' +
                 ", cardType=" + cardType +
                 ", successRequired=" + successRequired +
-                ", numberOfTryingDice=" + numberOfTryingDice +
+                ", diceThrow=" + diceThrow +
                 ", onlyPlayableLastTurn=" + onlyPlayableLastTurn +
                 ", goldReward=" + goldReward +
                 ", healthReward=" + healthReward +
@@ -127,12 +138,12 @@ public class Card {
         this.successRequired = successRequired;
     }
 
-    public int getNumberOfTryingDice() {
-        return numberOfTryingDice;
+    public DiceThrow getDiceThrow() {
+        return diceThrow;
     }
 
-    public void setNumberOfTryingDice(int numberOfTryingDice) {
-        this.numberOfTryingDice = numberOfTryingDice;
+    public void setDiceThrow(DiceThrow diceThrow) {
+        this.diceThrow = diceThrow;
     }
 
     public boolean isOnlyPlayableLastTurn() {

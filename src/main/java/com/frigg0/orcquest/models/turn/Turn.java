@@ -17,7 +17,7 @@ public class Turn {
     @Override
     public String toString() {
         return "Turn{" +
-                "turn=" + turn +
+                "turnService=" + turn +
                 '}';
     }
 
